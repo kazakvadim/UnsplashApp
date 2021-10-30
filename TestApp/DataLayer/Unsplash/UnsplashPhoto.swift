@@ -21,8 +21,6 @@ struct UnsplashPhoto: Codable {
     let likes: Int
     let width: Int
     let height: Int
-    let blurHash: String
-    let color: String
     let urls: Urls
 }
 
