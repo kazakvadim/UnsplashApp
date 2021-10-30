@@ -5,7 +5,7 @@
 //  Created by Vadim Kozachenko on 22.10.21.
 //
 
-import AlamofireImage
+import UIKit
 
 class PhotoTableViewCell: UITableViewCell {
 
@@ -19,10 +19,10 @@ class PhotoTableViewCell: UITableViewCell {
         super.prepareForReuse()
 
         photoImageView.image = placeholder
-        photoImageView.cancelImageLoad()
+        photoImageView.cancelLoad()
     }
 
     func set(photoModel: PhotoModel) {
-        photoImageView.loadImage(at: photoModel.imageURL!)
+        photoImageView.setImage(url: photoModel.imageURL, placeHolder: placeholder)
     }
 }
