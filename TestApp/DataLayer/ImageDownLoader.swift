@@ -1,5 +1,5 @@
 //
-//  ImageLoader.swift
+//  ImageDownLoader.swift
 //  TestApp
 //
 //  Created by Vadim Kozachenko on 28.10.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ImageLoader {
+class ImageDownLoader {
 
     private var activeRequests = [UUID: URLSessionDataTask]()
     private let cache = URLCacheManager.shared

@@ -13,7 +13,7 @@ final class ImageService {
 
     typealias ImageCallback = ((UIImage?) -> Void)
 
-    private let imageLoader = ImageLoader()
+    private let imageLoader = ImageDownLoader()
     private var requestsMap = [UIImageView: UUID]()
     private var callbacks = [URL: [ImageCallback]]()
 
