@@ -10,22 +10,26 @@ import UIKit
 class ImageLoader {
 
     private var activeRequests = [UUID: URLSessionDataTask]()
-    private let cache = ImageCache()
+    private let cache = URLCacheManager.shared
 
     func loadImage(_ url: URL?, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
         guard let url = url else {
             return nil
         }
 
-        if let image = cache[url] {
+        if let response = cache.response(for: url),
+           let image = UIImage(data: response.data) {
             completion(.success(image))
             return nil
         }
         let uuid = UUID()
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             defer { self.activeRequests.removeValue(forKey: uuid) }
-            if let data = data, let image = UIImage(data: data) {
-                self.cache[url] = image
+            if let data = data,
+               let image = UIImage(data: data),
+               let response = response {
+                let cachedResponse = CachedURLResponse(response: response, data: data)
+                self.cache.store(response: cachedResponse, for: url)
                 completion(.success(image))
                 return
             }
