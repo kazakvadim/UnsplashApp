@@ -8,14 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		9B011256272C078200534A44 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B011255272C078200534A44 /* ImageCache.swift */; };
-		9B01125C272C280C00534A44 /* UnsplashNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125B272C280C00534A44 /* UnsplashNetworkService.swift */; };
-		9B01125E272C282F00534A44 /* UnsplashNetworkService+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125D272C282F00534A44 /* UnsplashNetworkService+Config.swift */; };
-		9B011260272C302300534A44 /* UnsplashPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125F272C302300534A44 /* UnsplashPhoto.swift */; };
+		9B01125C272C280C00534A44 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125B272C280C00534A44 /* NetworkService.swift */; };
+		9B01125E272C282F00534A44 /* NetworkService+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125D272C282F00534A44 /* NetworkService+Config.swift */; };
+		9B011260272C302300534A44 /* UnsplashPhotoDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B01125F272C302300534A44 /* UnsplashPhotoDTO.swift */; };
+		9B0AE27D27329E8200758533 /* UnsplashPageDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AE27C27329E8200758533 /* UnsplashPageDTO.swift */; };
+		9B0AE27F2732A09700758533 /* UnsplashAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0AE27E2732A09700758533 /* UnsplashAPI.swift */; };
 		9B0F7F342722D062005FA708 /* PhotosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F7F332722D062005FA708 /* PhotosViewModel.swift */; };
 		9B0F7F372722D105005FA708 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F7F352722D105005FA708 /* PhotoTableViewCell.swift */; };
 		9B0F7F382722D105005FA708 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F7F362722D105005FA708 /* PhotoTableViewCell.xib */; };
 		9B0F7F3A2722D844005FA708 /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F7F392722D844005FA708 /* UIImageView+Extensions.swift */; };
 		9B315CA1272D706400A3B9C5 /* URLCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */; };
+		9B5816E22732A84400B8C5EE /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5816E12732A84400B8C5EE /* PhotoModel.swift */; };
 		9B747E3A2722A1510087348C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B747E392722A1510087348C /* AppDelegate.swift */; };
 		9B747E3C2722A1510087348C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B747E3B2722A1510087348C /* SceneDelegate.swift */; };
 		9B747E3E2722A1510087348C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B747E3D2722A1510087348C /* ViewController.swift */; };
@@ -31,14 +34,17 @@
 		4C75229EE19AFFEBD2A78545 /* Pods_TestApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F470B9E0DCEAB4721468D4C /* Pods-TestApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.release.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.release.xcconfig"; sourceTree = "<group>"; };
 		9B011255272C078200534A44 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
-		9B01125B272C280C00534A44 /* UnsplashNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashNetworkService.swift; sourceTree = "<group>"; };
-		9B01125D272C282F00534A44 /* UnsplashNetworkService+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnsplashNetworkService+Config.swift"; sourceTree = "<group>"; };
-		9B01125F272C302300534A44 /* UnsplashPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhoto.swift; sourceTree = "<group>"; };
+		9B01125B272C280C00534A44 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		9B01125D272C282F00534A44 /* NetworkService+Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkService+Config.swift"; sourceTree = "<group>"; };
+		9B01125F272C302300534A44 /* UnsplashPhotoDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPhotoDTO.swift; sourceTree = "<group>"; };
+		9B0AE27C27329E8200758533 /* UnsplashPageDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashPageDTO.swift; sourceTree = "<group>"; };
+		9B0AE27E2732A09700758533 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
 		9B0F7F332722D062005FA708 /* PhotosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewModel.swift; sourceTree = "<group>"; };
 		9B0F7F352722D105005FA708 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		9B0F7F362722D105005FA708 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		9B0F7F392722D844005FA708 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheManager.swift; sourceTree = "<group>"; };
+		9B5816E12732A84400B8C5EE /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		9B747E362722A1510087348C /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B747E392722A1510087348C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B747E3B2722A1510087348C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,11 +82,57 @@
 		9B011258272C27A600534A44 /* Unsplash */ = {
 			isa = PBXGroup;
 			children = (
-				9B01125B272C280C00534A44 /* UnsplashNetworkService.swift */,
-				9B01125D272C282F00534A44 /* UnsplashNetworkService+Config.swift */,
-				9B01125F272C302300534A44 /* UnsplashPhoto.swift */,
+				9B5816E52732A8F100B8C5EE /* DTO */,
+				9B5816E42732A8E100B8C5EE /* API */,
 			);
 			path = Unsplash;
+			sourceTree = "<group>";
+		};
+		9B5816E32732A84900B8C5EE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B5816E12732A84400B8C5EE /* PhotoModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9B5816E42732A8E100B8C5EE /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9B0AE27E2732A09700758533 /* UnsplashAPI.swift */,
+				9B01125B272C280C00534A44 /* NetworkService.swift */,
+				9B01125D272C282F00534A44 /* NetworkService+Config.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9B5816E52732A8F100B8C5EE /* DTO */ = {
+			isa = PBXGroup;
+			children = (
+				9B01125F272C302300534A44 /* UnsplashPhotoDTO.swift */,
+				9B0AE27C27329E8200758533 /* UnsplashPageDTO.swift */,
+			);
+			path = DTO;
+			sourceTree = "<group>";
+		};
+		9B5816E62732A93D00B8C5EE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9BF65972272AD8EC008B38DF /* ViewController */,
+				9BF65971272AD8DD008B38DF /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9B5816E72732A95A00B8C5EE /* ImageService */ = {
+			isa = PBXGroup;
+			children = (
+				9BF6596E272AD7F1008B38DF /* ImageService.swift */,
+				9BF6596C272AD3F2008B38DF /* ImageDownLoader.swift */,
+				9B011255272C078200534A44 /* ImageCache.swift */,
+				9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */,
+			);
+			path = ImageService;
 			sourceTree = "<group>";
 		};
 		9B747E2D2722A1510087348C = {
@@ -111,14 +163,14 @@
 			path = TestApp;
 			sourceTree = "<group>";
 		};
-		9BF65970272AD8D3008B38DF /* Hits */ = {
+		9BF65970272AD8D3008B38DF /* Photos */ = {
 			isa = PBXGroup;
 			children = (
-				9BF65972272AD8EC008B38DF /* ViewController */,
+				9B5816E32732A84900B8C5EE /* Model */,
+				9B5816E62732A93D00B8C5EE /* View */,
 				9BF65973272AD8F6008B38DF /* ViewModel */,
-				9BF65971272AD8DD008B38DF /* Cell */,
 			);
-			path = Hits;
+			path = Photos;
 			sourceTree = "<group>";
 		};
 		9BF65971272AD8DD008B38DF /* Cell */ = {
@@ -159,7 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				9BF65974272AD903008B38DF /* Extensions */,
-				9BF65970272AD8D3008B38DF /* Hits */,
+				9BF65970272AD8D3008B38DF /* Photos */,
 			);
 			path = PresentationLayer;
 			sourceTree = "<group>";
@@ -168,10 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				9B011258272C27A600534A44 /* Unsplash */,
-				9BF6596E272AD7F1008B38DF /* ImageService.swift */,
-				9BF6596C272AD3F2008B38DF /* ImageDownLoader.swift */,
-				9B011255272C078200534A44 /* ImageCache.swift */,
-				9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */,
+				9B5816E72732A95A00B8C5EE /* ImageService */,
 			);
 			path = DataLayer;
 			sourceTree = "<group>";
@@ -311,13 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B01125E272C282F00534A44 /* UnsplashNetworkService+Config.swift in Sources */,
+				9B01125E272C282F00534A44 /* NetworkService+Config.swift in Sources */,
+				9B0AE27F2732A09700758533 /* UnsplashAPI.swift in Sources */,
 				9B011256272C078200534A44 /* ImageCache.swift in Sources */,
 				9B315CA1272D706400A3B9C5 /* URLCacheManager.swift in Sources */,
 				9B747E3E2722A1510087348C /* ViewController.swift in Sources */,
-				9B011260272C302300534A44 /* UnsplashPhoto.swift in Sources */,
+				9B0AE27D27329E8200758533 /* UnsplashPageDTO.swift in Sources */,
+				9B011260272C302300534A44 /* UnsplashPhotoDTO.swift in Sources */,
+				9B5816E22732A84400B8C5EE /* PhotoModel.swift in Sources */,
 				9B0F7F3A2722D844005FA708 /* UIImageView+Extensions.swift in Sources */,
-				9B01125C272C280C00534A44 /* UnsplashNetworkService.swift in Sources */,
+				9B01125C272C280C00534A44 /* NetworkService.swift in Sources */,
 				9BF6596F272AD7F1008B38DF /* ImageService.swift in Sources */,
 				9B0F7F342722D062005FA708 /* PhotosViewModel.swift in Sources */,
 				9B747E3A2722A1510087348C /* AppDelegate.swift in Sources */,

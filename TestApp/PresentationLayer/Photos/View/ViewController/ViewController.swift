@@ -7,25 +7,29 @@
 
 import UIKit
 import Alamofire
+import Combine
 
 class ViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
     private let viewModel = PhotosViewModel()
+    private var cancellables: Set<AnyCancellable> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureTableView()
-        downloadData()
+        subscribeToNotifications()
+        viewModel.downloadData()
     }
 
-    private func downloadData() {
-        viewModel.downloadData(completion: {
-            DispatchQueue.main.async { [weak self] in
+    private func subscribeToNotifications() {
+        viewModel.contentChangesPublisher
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] _ in
                 self?.tableView.reloadData()
             }
-        })
+            .store(in: &cancellables)
     }
 
     private func configureTableView() {
@@ -49,6 +53,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         100
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.row == viewModel.dataSource.count - 1 {
+            viewModel.downloadNextItems()
+        }
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

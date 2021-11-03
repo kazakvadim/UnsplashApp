@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UnsplashPhoto: Codable {
+struct UnsplashPhotoDTO: Codable {
 
     struct Urls: Codable {
         let raw: String
