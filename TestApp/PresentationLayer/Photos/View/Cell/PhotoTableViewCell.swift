@@ -19,6 +19,7 @@ class PhotoTableViewCell: UITableViewCell {
         super.prepareForReuse()
 
         photoImageView.backgroundColor = .clear
+        photoImageView.image = nil
         photoImageView.cancelLoad()
     }
 

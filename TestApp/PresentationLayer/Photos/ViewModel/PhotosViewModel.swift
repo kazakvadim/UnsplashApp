@@ -61,4 +61,10 @@ class PhotosViewModel {
             self?.isRequestPerforming = false
         }
     }
+
+    func calculateHeight(for index: Int, with width: Float) -> Float {
+        let model = dataSource[index]
+        let height = model.height * width / model.width
+        return height
+    }
 }

@@ -37,6 +37,12 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: PhotoTableViewCell.identifier, bundle: nil), forCellReuseIdentifier: PhotoTableViewCell.identifier)
     }
+
+    private func calculateHeight(for indexPath: IndexPath) -> CGFloat {
+        let viewWidth = Float(tableView.frame.width)
+        let height = CGFloat(viewModel.calculateHeight(for: indexPath.row, with: viewWidth))
+        return height
+    }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -58,15 +64,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        calculateWidth(for: indexPath)
+        calculateHeight(for: indexPath)
     }
 
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        calculateWidth(for: indexPath)
-    }
-
-    private func calculateWidth(for indexPath: IndexPath) -> CGFloat {
-        let model = viewModel.dataSource[indexPath.row]
-        return tableView.frame.width / (CGFloat(model.width / model.height))
+        calculateHeight(for: indexPath)
     }
 }
