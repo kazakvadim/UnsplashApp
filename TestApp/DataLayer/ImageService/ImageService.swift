@@ -15,13 +15,10 @@ final class ImageService {
 
     private let imageLoader = ImageDownLoader()
     private var requestsMap = [UIImageView: UUID]()
-    private var callbacks = [URL: [ImageCallback]]()
 
     private init() {}
 
     func load(_ url: URL, for imageView: UIImageView, completion: @escaping ImageCallback) {
-        callbacks[url]?.append(completion)
-
         let token = imageLoader.loadImage(url) { [weak self] result in
             guard let self = self else { return }
             defer { self.requestsMap.removeValue(forKey: imageView) }
@@ -29,9 +26,9 @@ final class ImageService {
             DispatchQueue.main.async {
                 switch result {
                 case let .success(image):
-                    self.callbacks[url]?.forEach { $0(image) }
+                    completion(image)
                 case let .failure(error):
-                    self.callbacks[url]?.forEach { $0(nil) }
+                    completion(nil)
                     print("Error \(error.localizedDescription)")
                 }
             }

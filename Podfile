@@ -6,7 +6,6 @@ target 'TestApp' do
   use_frameworks!
 
   pod 'Moya', '~> 15.0'
-  pod 'AlamofireImage', '~> 4.1'
   # Pods for TestApp
 
 end

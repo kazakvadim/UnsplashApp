@@ -23,6 +23,6 @@ class PhotoTableViewCell: UITableViewCell {
     }
 
     func set(photoModel: PhotoModel) {
-        photoImageView.setImage(url: photoModel.imageURL, placeHolder: placeholder)
+        photoImageView.setImage(url: photoModel.imageURL, placeholder: placeholder)
     }
 }
