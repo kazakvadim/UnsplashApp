@@ -13,6 +13,7 @@ class PhotosViewModel {
     private(set) var dataSource: [PhotoModel] = []
     private var cursor = UnsplashCursor(page: 1, perPage: 5)
     private var canFetchMore = true
+    private var isRequestPerforming = false
 
     private let _contentChangesPublisher = PassthroughSubject<[PhotoModel], Never>()
     var contentChangesPublisher: AnyPublisher<[PhotoModel], Never> {
@@ -20,18 +21,18 @@ class PhotosViewModel {
             .eraseToAnyPublisher()
     }
 
-    func downloadData() {
+    func downloadData(completion: (() -> Void)? = nil) {
         networkService.downloadImages(for: cursor) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case let .success(items):
                 let photos = items.map { PhotoModel(dto: $0) }
                 self.handle(items: photos)
-                self.contentDidChange()
             case let .failure(error):
-                print(error)
-                self.contentDidChange()
+                self.handle(error: error)
             }
+            self.contentDidChange()
+            completion?()
         }
     }
 
@@ -48,8 +49,16 @@ class PhotosViewModel {
         dataSource.append(contentsOf: items)
     }
 
+    private func handle(error: Error) {
+        print(error.localizedDescription)
+    }
+
     func downloadNextItems() {
-        guard canFetchMore else { return }
-        downloadData()
+        guard canFetchMore, !isRequestPerforming else { return }
+
+        isRequestPerforming = true
+        downloadData { [weak self] in
+            self?.isRequestPerforming = false
+        }
     }
 }

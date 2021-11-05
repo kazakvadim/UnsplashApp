@@ -11,7 +11,7 @@ final class ImageService {
 
     static let shared = ImageService()
 
-    typealias ImageCallback = ((UIImage?) -> Void)
+    typealias ImageCallback = ((UIImage?, Bool) -> Void)
 
     private let imageLoader = ImageDownLoader()
     private var requestsMap = [UIImageView: UUID]()
@@ -25,10 +25,10 @@ final class ImageService {
 
             DispatchQueue.main.async {
                 switch result {
-                case let .success(image):
-                    completion(image)
+                case let .success((image, isCached)):
+                    completion(image, isCached)
                 case let .failure(error):
-                    completion(nil)
+                    completion(nil, false)
                     print("Error \(error.localizedDescription)")
                 }
             }
@@ -58,10 +58,29 @@ extension UIImageView {
             completion?(self.image)
             return
         }
-        ImageService.shared.load(url, for: self) { image in
-            self.image = image ?? placeholder
-            completion?(self.image)
+        ImageService.shared.load(url, for: self) { [weak self] image, isCached in
+            guard let self = self else { return }
+            self.setImage(image ?? placeholder, isCached: isCached, completion: {
+                completion?(self.image)
+            })
         }
+    }
+
+    private func setImage(
+        _ image: UIImage?,
+        isCached: Bool,
+        completion: @escaping (() -> Void)
+    ) {
+        guard !isCached else {
+            self.image = image
+            completion()
+            return
+        }
+        UIView.transition(with: self, duration: 0.25, options: [.transitionCrossDissolve], animations: {
+            self.image = image
+        }, completion: { _ in
+            completion()
+        })
     }
 
     func cancelLoad() {

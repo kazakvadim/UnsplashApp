@@ -23,5 +23,6 @@ struct UnsplashPhotoDTO: Codable {
     let height: Int
     let urls: Urls
     let blurHash: String
+    let color: String
 }
 

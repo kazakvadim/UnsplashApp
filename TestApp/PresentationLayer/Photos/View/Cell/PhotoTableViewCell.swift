@@ -18,11 +18,12 @@ class PhotoTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
 
-        photoImageView.image = placeholder
+        photoImageView.backgroundColor = .clear
         photoImageView.cancelLoad()
     }
 
     func set(photoModel: PhotoModel) {
-        photoImageView.setImage(url: photoModel.imageURL, placeholder: placeholder)
+        photoImageView.backgroundColor = photoModel.color.withAlphaComponent(0.6)
+        photoImageView.setImage(url: photoModel.imageURL)
     }
 }

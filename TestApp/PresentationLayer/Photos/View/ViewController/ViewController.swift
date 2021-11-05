@@ -51,10 +51,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         viewModel.dataSource.count
     }
 
-    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
-    }
-
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == viewModel.dataSource.count - 1 {
             viewModel.downloadNextItems()
@@ -62,7 +58,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let hit = viewModel.dataSource[indexPath.row]
-        return tableView.frame.width / (CGFloat(hit.width / hit.height))
+        calculateWidth(for: indexPath)
+    }
+
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        calculateWidth(for: indexPath)
+    }
+
+    private func calculateWidth(for indexPath: IndexPath) -> CGFloat {
+        let model = viewModel.dataSource[indexPath.row]
+        return tableView.frame.width / (CGFloat(model.width / model.height))
     }
 }

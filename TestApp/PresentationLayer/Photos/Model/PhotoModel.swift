@@ -13,11 +13,13 @@ struct PhotoModel {
     let height: Float
     let likesCount: Int
     var image: UIImage?
+    let color: UIColor
 
     init(dto: UnsplashPhotoDTO) {
         self.imageURL = URL(string: dto.urls.regular)
         self.width = Float(dto.width)
         self.height = Float(dto.height)
         self.likesCount = dto.likes
+        self.color = UIColor(hexString: dto.color)
     }
 }

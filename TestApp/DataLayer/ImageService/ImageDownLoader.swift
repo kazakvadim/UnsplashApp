@@ -12,14 +12,14 @@ class ImageDownLoader {
     private var activeRequests = [UUID: URLSessionDataTask]()
     private let cache = URLCacheManager.shared
 
-    func loadImage(_ url: URL?, _ completion: @escaping (Result<UIImage, Error>) -> Void) -> UUID? {
+    func loadImage(_ url: URL?, _ completion: @escaping (Result<(UIImage, Bool), Error>) -> Void) -> UUID? {
         guard let url = url else {
             return nil
         }
 
         if let response = cache.response(for: url),
            let image = UIImage(data: response.data) {
-            completion(.success(image))
+            completion(.success((image, true)))
             return nil
         }
         let uuid = UUID()
@@ -30,7 +30,7 @@ class ImageDownLoader {
                let response = response {
                 let cachedResponse = CachedURLResponse(response: response, data: data)
                 self.cache.store(response: cachedResponse, for: url)
-                completion(.success(image))
+                completion(.success((image, false)))
                 return
             }
             guard let error = error else { return }

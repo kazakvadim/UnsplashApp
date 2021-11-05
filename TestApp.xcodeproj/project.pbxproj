@@ -24,6 +24,7 @@
 		9B747E412722A1510087348C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B747E3F2722A1510087348C /* Main.storyboard */; };
 		9B747E432722A1520087348C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B747E422722A1520087348C /* Assets.xcassets */; };
 		9B747E462722A1520087348C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B747E442722A1520087348C /* LaunchScreen.storyboard */; };
+		9BDE265527356731000CCD56 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDE265427356731000CCD56 /* UIColor+Extensions.swift */; };
 		9BF6596D272AD3F2008B38DF /* ImageDownLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6596C272AD3F2008B38DF /* ImageDownLoader.swift */; };
 		9BF6596F272AD7F1008B38DF /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BF6596E272AD7F1008B38DF /* ImageService.swift */; };
 		EF5E8474EC0B21C12A0A4EAC /* Pods_TestApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C75229EE19AFFEBD2A78545 /* Pods_TestApp.framework */; };
@@ -51,6 +52,7 @@
 		9B747E422722A1520087348C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B747E452722A1520087348C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9B747E472722A1520087348C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BDE265427356731000CCD56 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		9BF6596C272AD3F2008B38DF /* ImageDownLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownLoader.swift; sourceTree = "<group>"; };
 		9BF6596E272AD7F1008B38DF /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		ED65974EBB70604F2D19EF72 /* Pods-TestApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestApp.debug.xcconfig"; path = "Target Support Files/Pods-TestApp/Pods-TestApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -161,6 +163,22 @@
 			path = TestApp;
 			sourceTree = "<group>";
 		};
+		9BDE264A27355F45000CCD56 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				9BDE26532735671F000CCD56 /* Utils */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		9BDE26532735671F000CCD56 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9BDE265427356731000CCD56 /* UIColor+Extensions.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		9BF65970272AD8D3008B38DF /* Photos */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,6 +225,7 @@
 		9BF65975272ADA30008B38DF /* PresentationLayer */ = {
 			isa = PBXGroup;
 			children = (
+				9BDE264A27355F45000CCD56 /* Core */,
 				9BF65974272AD903008B38DF /* Extensions */,
 				9BF65970272AD8D3008B38DF /* Photos */,
 			);
@@ -371,6 +390,7 @@
 				9B747E3A2722A1510087348C /* AppDelegate.swift in Sources */,
 				9B0F7F372722D105005FA708 /* PhotoTableViewCell.swift in Sources */,
 				9BF6596D272AD3F2008B38DF /* ImageDownLoader.swift in Sources */,
+				9BDE265527356731000CCD56 /* UIColor+Extensions.swift in Sources */,
 				9B747E3C2722A1510087348C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
