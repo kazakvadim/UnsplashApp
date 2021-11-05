@@ -11,7 +11,7 @@ class PhotosViewModel {
 
     private let networkService = NetworkService.shared
     private(set) var dataSource: [PhotoModel] = []
-    private var cursor = UnsplashCursor(page: 1, perPage: 5)
+    private var cursor = UnsplashCursor(page: 1, perPage: 10)
     private var canFetchMore = true
     private var isRequestPerforming = false
 
