@@ -23,6 +23,7 @@ final class NetworkService {
             case let .success(response):
                 let data = response.data
                 let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
                     let images = try decoder.decode([UnsplashPhotoDTO].self, from: data)
                     completion(.success(images))
