@@ -10,26 +10,24 @@ import UIKit
 class ImageDownLoader {
 
     private var activeRequests = [UUID: URLSessionDataTask]()
-    private let cache = URLCacheManager.shared
+    private let cache = ImageCache()
 
     func loadImage(_ url: URL?, _ completion: @escaping (Result<(UIImage, Bool), Error>) -> Void) -> UUID? {
         guard let url = url else {
             return nil
         }
 
-        if let response = cache.response(for: url),
-           let image = UIImage(data: response.data) {
+        if let image = cache[url]  {
             completion(.success((image, true)))
             return nil
         }
         let uuid = UUID()
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, response, error in
+            guard let self = self else { return }
             defer { self.activeRequests.removeValue(forKey: uuid) }
-            if let data = data,
-               let image = UIImage(data: data),
-               let response = response {
-                let cachedResponse = CachedURLResponse(response: response, data: data)
-                self.cache.store(response: cachedResponse, for: url)
+
+            if let data = data, let image = UIImage(data: data) {
+                self.cache[url] = image
                 completion(.success((image, false)))
                 return
             }
