@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
+//  PhotosViewController.swift
 //  TestApp
 //
-//  Created by Vadim Kozachenko on 22.10.21.
+//  Created by Vadim Kozachenko on 7.11.21.
 //
 
-import UIKit
 import Alamofire
 import Combine
+import UIKit
 
-class ViewController: UIViewController {
+class PhotosViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+
     private let viewModel = PhotosViewModel()
     private var cancellables: Set<AnyCancellable> = []
 
@@ -45,14 +46,15 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
+extension PhotosViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PhotoTableViewCell.identifier) as! PhotoTableViewCell
         let photoModel = viewModel.dataSource[indexPath.row]
         cell.set(photoModel: photoModel)
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.dataSource.count
     }
