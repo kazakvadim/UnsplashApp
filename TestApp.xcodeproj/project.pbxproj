@@ -17,6 +17,7 @@
 		9B0F7F372722D105005FA708 /* PhotoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B0F7F352722D105005FA708 /* PhotoTableViewCell.swift */; };
 		9B0F7F382722D105005FA708 /* PhotoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B0F7F362722D105005FA708 /* PhotoTableViewCell.xib */; };
 		9B315CA1272D706400A3B9C5 /* URLCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */; };
+		9B3CDEBA2747CB100094E7CE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B3CDEB92747CB100094E7CE /* GoogleService-Info.plist */; };
 		9B5816E22732A84400B8C5EE /* PhotoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5816E12732A84400B8C5EE /* PhotoModel.swift */; };
 		9B747E3A2722A1510087348C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B747E392722A1510087348C /* AppDelegate.swift */; };
 		9B747E432722A1520087348C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B747E422722A1520087348C /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		9B0F7F352722D105005FA708 /* PhotoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoTableViewCell.swift; sourceTree = "<group>"; };
 		9B0F7F362722D105005FA708 /* PhotoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoTableViewCell.xib; sourceTree = "<group>"; };
 		9B315CA0272D706400A3B9C5 /* URLCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCacheManager.swift; sourceTree = "<group>"; };
+		9B3CDEB92747CB100094E7CE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9B5816E12732A84400B8C5EE /* PhotoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoModel.swift; sourceTree = "<group>"; };
 		9B747E362722A1510087348C /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B747E392722A1510087348C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		9BF65977272ADA6E008B38DF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9B3CDEB92747CB100094E7CE /* GoogleService-Info.plist */,
 				9B747E442722A1520087348C /* LaunchScreen.storyboard */,
 				9B747E392722A1510087348C /* AppDelegate.swift */,
 				9B747E422722A1520087348C /* Assets.xcassets */,
@@ -341,6 +344,7 @@
 			files = (
 				9B747E462722A1520087348C /* LaunchScreen.storyboard in Resources */,
 				9B0F7F382722D105005FA708 /* PhotoTableViewCell.xib in Resources */,
+				9B3CDEBA2747CB100094E7CE /* GoogleService-Info.plist in Resources */,
 				9B747E432722A1520087348C /* Assets.xcassets in Resources */,
 				9BFCE21927384916003B8348 /* PhotosViewController.xib in Resources */,
 			);

@@ -6,6 +6,9 @@ target 'TestApp' do
   use_frameworks!
 
   pod 'Moya', '~> 15.0'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
   # Pods for TestApp
 
 end
